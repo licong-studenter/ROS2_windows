@@ -1,0 +1,23 @@
+@echo off
+set "ROS2_LYRICAL_ROOT=%~dp0"
+if "%ROS2_LYRICAL_ROOT:~-1%"=="\" set "ROS2_LYRICAL_ROOT=%ROS2_LYRICAL_ROOT:~0,-1%"
+set "ROS2_LYRICAL_ROS=%ROS2_LYRICAL_ROOT%\ros"
+set "ROS2_LYRICAL_RUNTIME=%ROS2_LYRICAL_ROOT%\runtime"
+set "ROS2_LYRICAL_PYTHON=%ROS2_LYRICAL_RUNTIME%\python.exe"
+set "COLCON_PYTHON_EXECUTABLE=%ROS2_LYRICAL_PYTHON%"
+set "PYTHONUTF8=1"
+set "ROS_DISTRO=lyrical"
+set "ROS_VERSION=2"
+set "ROS_PYTHON_VERSION=3"
+set "AMENT_PREFIX_PATH=%ROS2_LYRICAL_ROS%"
+set "COLCON_PREFIX_PATH=%ROS2_LYRICAL_ROS%"
+set "CMAKE_PREFIX_PATH=%ROS2_LYRICAL_ROS%"
+call "%ROS2_LYRICAL_ROS%\local_setup.bat" >nul 2>nul
+set "PATH=%ROS2_LYRICAL_RUNTIME%;%ROS2_LYRICAL_RUNTIME%\Scripts;%ROS2_LYRICAL_RUNTIME%\Library\bin;%ROS2_LYRICAL_ROS%\Scripts;%ROS2_LYRICAL_ROS%\bin;%PATH%"
+set "PYTHONPATH=%ROS2_LYRICAL_ROS%\Lib\site-packages;%ROS2_LYRICAL_RUNTIME%\Lib\site-packages;%ROS2_LYRICAL_RUNTIME%\DLLs;%PYTHONPATH%"
+set "QT_QPA_PLATFORM_PLUGIN_PATH=%ROS2_LYRICAL_RUNTIME%\Library\lib\qt6\plugins\platforms"
+set "SSL_CERT_FILE=%ROS2_LYRICAL_RUNTIME%\Library\ssl\cacert.pem"
+set "SSL_CERT_DIR=%ROS2_LYRICAL_RUNTIME%\Library\ssl\certs"
+for /d %%D in ("%ROS2_LYRICAL_ROOT%\ros\opt\*") do if exist "%%~fD\bin" set "PATH=%%~fD\bin;%PATH%"
+for /d %%D in ("%ROS2_LYRICAL_ROOT%\ros\opt\*") do if exist "%%~fD\lib" set "PATH=%%~fD\lib;%PATH%"
+exit /b 0
