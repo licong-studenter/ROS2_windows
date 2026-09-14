@@ -3,7 +3,7 @@
 本文档说明如何安装随本项目提供的 ROS 2 Lyrical 离线安装程序。安装程序文件为：
 
 ```text
-C:\ros2\ROS2-Lyrical-Windows-x64-Installer.exe
+(https://github.com/licong-studenter/ROS2_windows/releases/tag/ros2_lyrical)
 ```
 
 安装包内置 ROS 2 Lyrical 运行环境和完整 Python/Pixi 运行时，目标机器不需要预装 Python、Pixi、Visual Studio 或连接互联网。
